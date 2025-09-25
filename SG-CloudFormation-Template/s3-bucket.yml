@@ -1,5 +1,14 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: This templates deploys an AWS S3 bucket.
+Description: This template deploys an AWS S3 bucket.
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: "The name of the S3 bucket to create"
+    MinLength: 3
+    MaxLength: 63
+    AllowedPattern: "^[a-z0-9.-]+$"
+    ConstraintDescription: "Bucket name must contain only lowercase letters, numbers, dots, and hyphens."
 
 Resources:
   SGS3Bucket:
