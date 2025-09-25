@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: This templates deploys an AWS S3 bucket.
+
+Resources:
+  SGS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: Enabled
+
+Outputs:
+  BucketName:
+    Description: "Name of the created S3 bucket"
+    Value: !Ref SGS3Bucket
+
+  BucketArn:
+    Description: "ARN of the created S3 bucket"
+    Value: !GetAtt SGS3Bucket.Arn
